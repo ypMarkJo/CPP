@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+//#include<stdio.h>
+#include"stack.h"
+using namespace std;
+
+int main()
+{
+    FILE* fp; 
+    TYPE data ;
+   char ch;
+    Stack intStack;
+   fp= fopen("OPEN.txt", "r");
+   if (fp == NULL)
+   {
+       cout << "파일이 열리지 않았습니다.\n" << endl;
+       return 1;
+   }
+   while ((ch = fgetc(fp)) != EOF)
+   {
+       if (ch == '{'||ch=='(') {
+           intStack.Push(ch);
+       }
+       else if (ch == '}'||ch==')') {
+           intStack.Pop();
+       }
+   }
+  
+   if (intStack.Empty())
+       cout << "stack이 비었습니다." << endl;
+   else
+       cout << "stack이 비어있지 않습니다." << endl << "괄호의 짝이 맞는지 확인해주세요" << endl;
+
+   fclose(fp);
+  }}
