@@ -4,4 +4,6 @@
 >
 > **arrObject[2]; 다음과 같이 해석가능하다.**
 > 
-> ```c++arrObject.operator[](2)``` 
+> ```C++
+>  arrObject.operator[](2)
+> ``` 
