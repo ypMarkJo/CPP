@@ -38,3 +38,76 @@ private:
   BoundCheckIntArray &operator=(const BoundCheckIntArray &arr){};
 }
 ```
+### const 함수를 이용한 오버로딩의 활용.
+```C++
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+class BoundCheckIntArray
+{
+private:
+	int* arr;
+	int arrlen;
+
+	BoundCheckIntArray(const BoundCheckIntArray& arr) { }
+	BoundCheckIntArray& operator=(const BoundCheckIntArray& arr) { }
+
+public:
+	BoundCheckIntArray(int len) :arrlen(len)
+	{
+		arr = new int[len];
+	}
+	int& operator[] (int idx)//<---------------------------3. const 참조자로는 이 함수를 호출 불가.
+	{
+		if (idx < 0 || idx >= arrlen)
+		{
+			cout << "Array index out of bound exception" << endl;
+			exit(1);
+		}
+
+		return arr[idx];
+	}
+	int& operator[] (int idx) const//<-----------------------4. 따라서 const타입 함수를 오버로딩.
+	{
+		if (idx < 0 || idx >= arrlen)
+		{
+			cout << "Array index out of bound exception" << endl;
+			exit(1);
+		}
+
+		return arr[idx];
+	}
+
+	int GetArrLen() const
+	{
+		return arrlen;
+	}
+	~BoundCheckIntArray()
+	{
+		delete[]arr;
+	}
+	
+};
+
+void ShowAllData(const BoundCheckIntArray& ref)//<----1.const 타입 참조자 호출
+{
+	int len = ref.GetArrLen();
+
+	for (int idx = 0; idx < len; idx++)
+		cout << ref[idx] << endl;//<-----------------------2.참조자의 ref.operator[](idx) 호출
+}
+
+int main(void)
+{
+	BoundCheckIntArray arr(5);
+
+	for (int i = 0; i < 5; i++)
+		arr[i] = (i + 1) * 11;
+
+	ShowAllData(arr);
+	return 0;
+}
+
+```
+> 위와 같이 const의 선언 유무만으로도 오버로딩이 가능. (호출 객체가 const인지의 여부에 구애받지 않음)
