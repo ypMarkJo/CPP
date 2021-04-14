@@ -53,3 +53,20 @@ int main() {
 
 ## 템플릿에 클래스를 이용하면
 
+```C++
+#include<iostream>
+#include<string>
+
+template<typename T,int N>
+class Array
+{
+private:
+	T m_Array[N];
+public:
+	int GetSize()const { return N; }
+};
+int main() {
+	Array<std::string,50>array;
+	std::cout << array.GetSize() << std::endl;
+}  
+```
