@@ -1,3 +1,6 @@
+## 함수를 대상으로 템플릿 이해하기
+> "함수의 기능은 결정되어 있지만, 자료형은 결정되어 있지 않아서 결정해야 한다."
+
 ## 템플릿을 사용하지 않을 때
 > 다양한 타입의 매개변수를 받으려면
 >
@@ -32,7 +35,7 @@ int main() {
 #include<iostream>
 #include<string>
 
-template<typename T>//보편적으로 T이나 어떤것이든 가능.
+template<typename T>//보편적으로 T이나 어떤것이든 가능.<class T>도 가능.
 void Print(T value)
 {
 	std::cout << value << std::endl;
@@ -46,7 +49,7 @@ int main() {
 	//템플릿을 쓰면 자료형을 매개변수의 타입에 따라 가변적으로 받지만
 	//아래와 같이 자료형을 명시할 수도 있다.
 
-	Print<std::string>("Dog");//<---꺽쇠 <>를 통해 특정하는 **특수화**
+	Print<std::string>("Dog");//<---꺽쇠 <>를 통해 특정하는 **특수화**: <>로 템플릿 함수임을 명시
 
 }
 ```
