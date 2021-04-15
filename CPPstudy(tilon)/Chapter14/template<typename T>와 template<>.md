@@ -22,3 +22,11 @@ public:
   int SimpleFunc(int num){....}
 }
 ```
+
+## 템플릿 static 멤버변수 초기화의 특수화
+
+> 기본적으로는 ![image](https://user-images.githubusercontent.com/80379900/114836834-01b06400-9e0e-11eb-82ac-9a4349ef133a.png)와 같이 초기화한다.
+
+> 그러나 <long> 타입의 템플릿 변수에는 다른 초기화값을 넣어주고 싶다면 특수화를 통해 초기화하면 된다.
+![image](https://user-images.githubusercontent.com/80379900/114836990-2dcbe500-9e0e-11eb-8afb-3e8fd3b27e0a.png)
+
