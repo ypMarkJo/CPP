@@ -22,3 +22,19 @@
 ## 구조체를 통한 메모리 사이즈 확인
 ![image](https://user-images.githubusercontent.com/80379900/115175059-4f2a1b00-a105-11eb-943c-9eec3f7b14ad.png)
 > 14가 되어야 하지만 컴파일러가 메모리를 관리해주는 모습이다.
+
+## 포인터의 메모리 사이즈 확인
+![image](https://user-images.githubusercontent.com/80379900/115200502-42222180-a12f-11eb-8262-061b74734d91.png)
+> 포인터는 가르키고 있는 객체의 사이즈와 관계없이 사이즈가 고정된다.(Linux 8, Win 4 byte)
+> 
+
+## C++에서의 메모리 관리
+![image](https://user-images.githubusercontent.com/80379900/115207378-81a03c00-a136-11eb-8b97-ae815e117705.png)
+> **힙메모리의 3가지 문제**
+> 
+> *1.Life Cycle*
+> 
+> *2.Large size*
+> 
+> *3.Dynamic(runtime)*
+> 
