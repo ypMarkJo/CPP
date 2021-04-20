@@ -43,5 +43,13 @@ return 0;
 - 대부분의 시그널에 대한 기본 동작은 프로세스를 종료하는 것이나 추가적으로 <br>시그널을 무시하거나 일시정지,재시작 등의 동작을 수행하기도 한다.<br>
 - 프로세스는 시그널의 처리를 위해 미리 함수를 지정해놓고 시그널을 받으면 해당 함수를 호출해 처리한다.<br> 
 - 시그널 처리를 위해 지정하는 함수를 ***시그널 핸들러*** 라고 한다. 시그널을 받으면 기존 처리 작업을 중지한 후<br> 시그널 핸들러를 호출하며,시그널 핸들러의 동작이 완료되면 기존 처리 작업을 계속 수행한다.
-- 프로세스는 특정 부분이 실행되는 동안 시그널이 발생하지 않도록 블록할 수 있다. 블록된 시그널은 큐에 쌓여 있다가 시그널 블록이 해제되면 전달된다.
+- 프로세스는 특정 부분이 실행되는 동안 시그널이 발생하지 않도록 블록할 수 있다.<br>블록된 시그널은 큐에 쌓여 있다가 시그널 블록이 해제되면 전달된다.
 
+![image](https://user-images.githubusercontent.com/80379900/115358695-e15f1b80-a1f8-11eb-91cf-f0077c5a2aaa.png)
+![image](https://user-images.githubusercontent.com/80379900/115358797-fd62bd00-a1f8-11eb-9d34-d6ac384017bb.png)
+![image](https://user-images.githubusercontent.com/80379900/115359931-1b7ced00-a1fa-11eb-9852-5d9689ff42ed.png)
+![image](https://user-images.githubusercontent.com/80379900/115360702-d7d6b300-a1fa-11eb-910f-f49554e3161c.png)
+![image](https://user-images.githubusercontent.com/80379900/115360868-fe94e980-a1fa-11eb-8c5e-dc828dd6870d.png)
+![image](https://user-images.githubusercontent.com/80379900/115363466-7532e680-a1fd-11eb-9643-130d011f2c73.png)
+![image](https://user-images.githubusercontent.com/80379900/115364971-e626ce00-a1fe-11eb-9b11-5cc4289c06af.png)
+> signal(시그널 상수신호,핸들러 함수 포인터) -> 핸들러 구현시 void func(int 상수신호) 로 구현해야함.<-signal 함수의 정의.
